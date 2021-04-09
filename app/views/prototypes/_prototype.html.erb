@@ -1,0 +1,13 @@
+<div class="card">
+  <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype) %>
+  <div class="card__body">
+    <%= link_to prototype.title, prototype_path(prototype), class: :card__title%>
+    <%# ここでのprototype_path(prototype)は"/prototypes/1"というURLを意味する。１のidはcollectionオプションにより、eachのように繰り返され、変化する。
+     prototype_pathで示されるのは全てのprototype、よって順番に表示させるために、一つ一つのprototypeを指定する必要がある。(prototype)はそのための記述であり、
+     実際にroutesで確認しても、(prototype)の記述を行う事で、一つのprototypeの情報が取得できている事が確認できる。%>
+    <p class="card__summary">
+      <%= prototype.catch_copy %>
+    </p>
+    <%= link_to "by #{prototype.user.name}", user_path(prototype.user_id), class: :card__user %>
+  </div>
+</div>
